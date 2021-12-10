@@ -40,3 +40,9 @@ def select(id):
         manufacturer = Manufacturer(
             result['name'], result['is_active'], result['id'])
     return manufacturer
+
+
+def update(manufacturer):
+    sql = "UPDATE manufacturers SET (name, is_active) = (%s, %s) WHERE id = %s"
+    values = [manufacturer.name, manufacturer.is_active, manufacturer.id]
+    run_sql(sql, values)
