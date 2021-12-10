@@ -12,6 +12,11 @@ def manufacturers():
     return render_template("manufacturers/index.html", title="List of Manufacturers", all_manufacturers=manufacturers)
 
 
+@manufacturers_blueprint.route("/manufacturers/new")
+def new_manufacturer():
+    return render_template("manufacturers/new.html")
+
+
 @manufacturers_blueprint.route("/manufacturers/new", methods=['POST'])
 def create_manufacturer():
     name = request.form['name']

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<form action="/manufacturers/new" method="post">
+
+    <div>
+        <label for="name">Manufacturer's name: </label>
+        <input type="text" id="name" name="name" required autofocus>
+    </div>
+
+    <div>
+        <label for="is_active">Is active?</label>
+        <select name="is_active" id="is_active" required>
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+    </div>
+    <button type="submit">Add Manufacturer</button>
+
+</form>
+{% endblock  %}
