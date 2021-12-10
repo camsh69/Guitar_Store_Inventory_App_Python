@@ -1,3 +1,4 @@
+from controllers.manufacturers_controller import manufacturers
 from db.run_sql import run_sql
 
 from models.manufacturer import Manufacturer
@@ -27,3 +28,15 @@ def select_all():
         manufacturer = Manufacturer(row['name'], row['is_active'], row['id'])
         manufacturers.append(manufacturer)
     return manufacturers
+
+
+def select(id):
+    manufacturer = None
+    sql = "SELECT * FROM manufacturers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        manufacturer = Manufacturer(
+            result['name'], result['is_active'], result['id'])
+    return manufacturer
