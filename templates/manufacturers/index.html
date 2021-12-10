@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>List of all manufacturers</h1>
+
+{% for manufacturer in all_manufacturers %}
+<section>
+    <div>
+        <ul>
+            <li>Name: {{ manufacturer.name }}</li>
+            <li>Is active?: {{ manufacturer.is_active }}</li>
+            <li>ID: {{ manufacturer.id }}</li>
+        </ul>
+    </div>
+</section>
+
+{% endfor %}
+
+{% endblock %}
