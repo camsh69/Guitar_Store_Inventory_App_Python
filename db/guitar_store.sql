@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS manufacturers;
 CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    active BOOLEAN
+    is_active BOOLEAN
 );
 
 CREATE TABLE products (
