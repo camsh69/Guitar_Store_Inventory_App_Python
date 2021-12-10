@@ -10,3 +10,12 @@ manufacturers_blueprint = Blueprint("manufacturer", __name__)
 def manufacturers():
     manufacturers = manufacturer_repository.select_all()
     return render_template("manufacturers/index.html", title="List of Manufacturers", all_manufacturers=manufacturers)
+
+
+@manufacturers_blueprint.route("/manufacturers/new", methods=['POST'])
+def create_manufacturer():
+    name = request.form['name']
+    is_active = request.form['is_active']
+    manufacturer = Manufacturer(name, is_active)
+    manufacturer_repository.save(manufacturer)
+    return redirect('/manufactorers')
