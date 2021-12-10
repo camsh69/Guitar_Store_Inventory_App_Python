@@ -36,3 +36,12 @@ def show_manufacturer(id):
 def edit_manufacturer(id):
     manufacturer = manufacturer_repository.select(id)
     return render_template("manufacturers/edit.html", manufacturer=manufacturer)
+
+
+@manufacturers_blueprint.route("/manufacturers/<id>/edit", methods=['POST'])
+def update_manufacturer(id):
+    name = request.form['name']
+    is_active = request.form['is_active']
+    manufacturer = Manufacturer(name, is_active, id)
+    manufacturer_repository.update(manufacturer)
+    return redirect("/manufacturers")
