@@ -9,9 +9,21 @@ def delete_all():
 
 
 def save(manufacturer):
-    sql = "INSERT INTO manufacturers (name, active) VALUES (%s, %s) RETURNING *"
+    sql = "INSERT INTO manufacturers (name, is_active) VALUES (%s, %s) RETURNING *"
     values = [manufacturer.name, manufacturer.active]
     results = run_sql(sql, values)
     id = results[0]['id']
     manufacturer.id = id
     return manufacturer
+
+
+def select_all():
+    manufacturers = []
+
+    sql = "SELECT * FROM manufacturers"
+    results = run_sql(sql)
+
+    for row in results:
+        manufacturer = Manufacturer(row['name'], row['is_active']. row['id'])
+        manufacturers.append(manufacturer)
+    return manufacturers
