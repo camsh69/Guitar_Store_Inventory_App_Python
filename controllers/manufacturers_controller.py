@@ -18,4 +18,4 @@ def create_manufacturer():
     is_active = request.form['is_active']
     manufacturer = Manufacturer(name, is_active)
     manufacturer_repository.save(manufacturer)
-    return redirect('/manufactorers')
+    return redirect('/manufacturers')
