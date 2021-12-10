@@ -1,6 +1,6 @@
 class Manufacturer:
 
-    def __init__(self, name, status, id=None):
+    def __init__(self, name, active, id=None):
         self.name = name
-        self.status = status
+        self.active = active
         self.id = id
