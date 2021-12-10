@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/manufacturers/{{ manufacturer.id }}/edit" method="post">
+    <div>
+        <label for="name">Manufacturer's Name: </label>
+        <input type="text" name="name" id="name" value="{{ manufacturer.name }}" placeholder="{{ manufacturer.name }}"
+            disabled>
+    </div>
+
+    <div>
+        <label for="is_active">Is active?</label>
+        <select name="is_active" id="is_active" required>
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+    </div>
+    <button type="submit">Update</button>
+    <input type="reset">
+</form>
+
+{% endblock content %}
