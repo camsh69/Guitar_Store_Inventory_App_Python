@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.product import Product
 from models.manufacturer import Manufacturer
+import repositories.manufacturer_repository as manufacturer_repository
 
 
 def delete_all():
@@ -17,3 +18,17 @@ def save(product):
     id = results[0]['id']
     product.id = id
     return id
+
+
+def select_all():
+    products = []
+
+    sql = "SELECT * FROM products"
+    results = run_sql(sql)
+
+    for row in results:
+        manufacturer_id = manufacturer_repository.select(
+            row['manufacturer_id'])
+        product = Product(row['item'], row['description'], row['category'], row['stock_quantity'],
+                          row['buying_cost'], row['selling_price'], manufacturer_id, row['id'])
+        products.append(product)
