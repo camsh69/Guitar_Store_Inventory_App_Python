@@ -9,4 +9,4 @@ products_blueprint = Blueprint("books", __name__)
 @products_blueprint.route("/products")
 def products():
     products = product_repository.select_all()
-    return render_template("index.html", title="Products", all_products=products)
+    return render_template("products/index.html", title="Products", all_products=products)

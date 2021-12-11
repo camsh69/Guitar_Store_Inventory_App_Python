@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <a href="/products/new">+ Add New Product</a>
+</div>
+
+{% for product in all_products %}
+<div>
+    <ul>
+        <li>{{ product.manufacturer.name }}</li>
+        <li>{{ product.item }}</li>
+        <li>{{ product.description }}</li>
+        <li>{{ product.category }}</li>
+        <li>{{ product.buying_cost }}</li>
+        <li>{{ product.selling_price }}</li>
+        <li>{{ product.stock_quantity }}</li>
+    </ul>
+    <a href="/products/{{ product.id }}">View Product</a>
+</div>
+
+{% endfor %}
+
+{% endblock content %}
