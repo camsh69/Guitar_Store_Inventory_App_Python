@@ -25,7 +25,7 @@ product1 = Product('Stratocaster', 'Six string, Sunburst',
                    'Electric Guitar', 6, 450, 500, manufacturer1)
 product_repository.save(product1)
 product2 = Product('Les Paul', 'Six string, Black',
-                   'Electric Guitar', 5, 850, 1100, manufacturer2)
+                   'Electric Guitar', 4, 850, 1100, manufacturer2)
 product_repository.save(product2)
 
 # print(product1.item, product1.description, product1.category, product1.stock_quantity,

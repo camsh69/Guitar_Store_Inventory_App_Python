@@ -14,7 +14,8 @@
         <li>{{ product.category }}</li>
         <li>{{ product.buying_cost }}</li>
         <li>{{ product.selling_price }}</li>
-        <li>{{ product.stock_quantity }}</li>
+        <li>{{ product.mark_up() }}%</li>
+        <li>{{ product.stock_quantity }} {{ product.check_stock_status() }}</li>
     </ul>
     <a href="/products/{{ product.id }}">View Product</a>
 </div>

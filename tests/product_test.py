@@ -9,7 +9,7 @@ class TestProduct(unittest.TestCase):
         self.manufacturer1 = Manufacturer('Fender', True)
 
         self.product1 = Product('Stratocaster', 'Six string, Sunburst',
-                                'Electric Guitar', 4, 450, 500, self.manufacturer1)
+                                'Electric Guitar', 4, 450, 540, self.manufacturer1)
         self.product2 = Product('Telecaster', 'Six string, Black',
                                 'Electric Guitar', 0, 850, 1100, self.manufacturer1)
         self.product3 = Product('Telecaster', 'Six string, Blonde',
@@ -24,3 +24,6 @@ class TestProduct(unittest.TestCase):
 
     def test_in_stock(self):
         self.assertEqual("In stock", self.product3.check_stock_status())
+
+    def test_mark_up(self):
+        self.assertEqual(20, self.product1.mark_up())

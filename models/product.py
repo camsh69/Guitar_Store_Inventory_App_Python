@@ -17,3 +17,8 @@ class Product:
             return "Low stock"
         else:
             return "In stock"
+
+    def mark_up(self):
+        mark_up = (self.selling_price -
+                   self.buying_cost) / (self.buying_cost) * 100
+        return "{:.2f}".format(mark_up)
