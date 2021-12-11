@@ -17,7 +17,7 @@ def save(product):
     results = run_sql(sql, values)
     id = results[0]['id']
     product.id = id
-    return id
+    return product
 
 
 def select_all():

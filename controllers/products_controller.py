@@ -15,7 +15,7 @@ def products():
 
 @products_blueprint.route("/products/new")
 def new_product():
-    manufacturers = manufacturer_repository.select_all
+    manufacturers = manufacturer_repository.select_all()
     return render_template("/products/new.html", all_manufacturers=manufacturers)
 
 
@@ -26,7 +26,7 @@ def create_product():
     category = request.form['category']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
-    selling_price = ['selling_price']
+    selling_price = request.form['selling_price']
     manufacturer = manufacturer_repository.select(
         request.form['manufacturer_id'])
     product = Product(item, description, category, stock_quantity,

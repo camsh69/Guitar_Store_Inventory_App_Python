@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/products/new" method="post">
+    <div>
+        <label for="item">New Item: </label>
+        <input type="text" name="item" id="item" placeholder="Item" maxlength="255" autofocus required>
+    </div>
+
+    <div>
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description" placeholder="Description" maxlength="255" required>
+    </div>
+
+    <div>
+        <label for="category">Category: </label>
+        <input type="text" name="category" id="category" placeholder="Category" maxlength="255" required>
+    </div>
+
+    <div>
+        <label for="stock quantity">Stock quantity: </label>
+        <input type="number" name="stock_quantity" id="stock_quantity" placeholder="Stock quantity" required>
+    </div>
+
+    <div>
+        <label for="buying cost">Buying cost: </label>
+        <input type="number" name="buying_cost" id="buying_cost" step="0.01" placeholder="Buying cost" required>
+    </div>
+
+    <div>
+        <label for="selling price">Selling price: </label>
+        <input type="number" name="selling_price" id="selling_price" step="0.01" placeholder="Selling price" required>
+    </div>
+
+    <div>
+        <label for="manufacturer">Manufacturer: </label>
+        <select name="manufacturer_id" id="manufacturer_id">
+            {% for manufacturer in all_manufacturers %}
+            {% if manufacturer.is_active != False %}
+            <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Add Product</button>
+    <button type="reset">Reset Form</button>
+</form>
+
+{% endblock content %}
