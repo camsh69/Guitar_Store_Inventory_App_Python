@@ -26,4 +26,4 @@ class TestProduct(unittest.TestCase):
         self.assertEqual("In stock", self.product3.check_stock_status())
 
     def test_mark_up(self):
-        self.assertEqual(20, self.product1.calculate_mark_up())
+        self.assertEqual("20.00", self.product1.calculate_mark_up())
