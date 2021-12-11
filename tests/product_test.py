@@ -17,12 +17,10 @@ class TestProduct(unittest.TestCase):
 
     def test_low_stock(self):
         self.assertEqual(
-            "Low stock", self.product1.check_stock_status(self.product1.stock_quantity))
+            "Low stock", self.product1.check_stock_status())
 
     def test_out_of_stock(self):
-        self.assertEqual("Out of stock", self.product2.check_stock_status(
-            self.product2.stock_quantity))
+        self.assertEqual("Out of stock", self.product2.check_stock_status())
 
     def test_in_stock(self):
-        self.assertEqual("In stock", self.product3.check_stock_status(
-            self.product3.stock_quantity))
+        self.assertEqual("In stock", self.product3.check_stock_status())

@@ -9,3 +9,11 @@ class Product:
         self.selling_price = selling_price
         self.manufacturer = manufacturer
         self.id = id
+
+    def check_stock_status(self):
+        if int(self.stock_quantity) == 0:
+            return "Out of stock"
+        elif int(self.stock_quantity) < 5:
+            return "Low stock"
+        else:
+            return "In stock"
