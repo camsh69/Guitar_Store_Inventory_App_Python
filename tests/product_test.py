@@ -16,8 +16,7 @@ class TestProduct(unittest.TestCase):
                                 'Electric Guitar', 5, 850, 1100, self.manufacturer1)
 
     def test_low_stock(self):
-        self.assertEqual(
-            "Low stock", self.product1.check_stock_status())
+        self.assertEqual("Low stock", self.product1.check_stock_status())
 
     def test_out_of_stock(self):
         self.assertEqual("Out of stock", self.product2.check_stock_status())
