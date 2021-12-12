@@ -6,8 +6,30 @@
 </div>
 
 <div>
-
+    <form action="/products" method="get">
+        <div>
+            Filter:
+            <label for="manufacturer"></label>
+            <select name="manufacturer" id="manufacturer">
+                <option value="" disabled selected hidden>Manufacturer</option>
+                <option value="all">All</option>
+                {% for manufacturer in unique_manufacturers %}
+                <option value="{{ manufacturer }}">{{ manufacturer }}</option>
+                {% endfor %}
+            </select>
+            <label for="category"></label>
+            <select name="category" id="category">
+                <option value="" disabled selected hidden>Category</option>
+                <option value="all">All</option>
+                {% for category in unique_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Go</button>
+        </div>
+    </form>
 </div>
+
 
 {% for product in all_products %}
 <div>

@@ -1,3 +1,4 @@
+from controllers.manufacturers_controller import manufacturers
 from db.run_sql import run_sql
 
 from models.product import Product
@@ -33,3 +34,19 @@ def select_all():
                           row['buying_cost'], row['selling_price'], manufacturer, row['id'])
         products.append(product)
     return products
+
+
+def category_list(products):
+    categories = []
+
+    for product in products:
+        categories.append(product.category)
+    return categories
+
+
+def manufacturers_list(products):
+    manufacturers = []
+
+    for product in products:
+        manufacturers.append(product.manufacturer.name)
+    return manufacturers

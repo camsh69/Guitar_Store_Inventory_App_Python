@@ -1,5 +1,7 @@
+from enum import unique
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from controllers.manufacturers_controller import manufacturers
 from models.product import Product
 import repositories.product_repository as product_repository
 import repositories.manufacturer_repository as manufacturer_repository
@@ -10,7 +12,15 @@ products_blueprint = Blueprint("books", __name__)
 @products_blueprint.route("/products")
 def products():
     products = product_repository.select_all()
-    return render_template("products/index.html", title="Products", all_products=products)
+    # retrieves list of categories from all products
+    categories = product_repository.category_list(products)
+    # removes duplicates from list of categories
+    unique_categories = list(dict.fromkeys(categories))
+    # retrieves list of manufacturers from all products
+    manufacturers = product_repository.manufacturers_list(products)
+    # removes duplicates from list of manufacturers
+    unique_manufacturers = list(dict.fromkeys(manufacturers))
+    return render_template("products/index.html", title="Products", all_products=products, unique_categories=unique_categories, unique_manufacturers=unique_manufacturers)
 
 
 @products_blueprint.route("/products/new")
