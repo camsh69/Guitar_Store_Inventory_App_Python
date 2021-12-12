@@ -1,22 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<fieldset>
+    <legend>Add New Manufacturer</legend>
+    <form action="/manufacturers/new" method="post">
 
-<form action="/manufacturers/new" method="post">
+        <div>
+            <label for="name">Manufacturer's name: </label>
+        </div>
+        <div>
+            <input type="text" id="name" name="name" required autofocus>
+        </div>
+        <br>
+        <div>
+            <label for="is_active">Is active?</label>
+        </div>
+        <div>
+            <select name="is_active" id="is_active" required>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Add Manufacturer</button>
+        </div>
 
-    <div>
-        <label for="name">Manufacturer's name: </label>
-        <input type="text" id="name" name="name" required autofocus>
-    </div>
-
-    <div>
-        <label for="is_active">Is active?</label>
-        <select name="is_active" id="is_active" required>
-            <option value="True">Yes</option>
-            <option value="False">No</option>
-        </select>
-    </div>
-    <button type="submit">Add Manufacturer</button>
-
-</form>
+    </form>
+</fieldset>
 {% endblock  %}

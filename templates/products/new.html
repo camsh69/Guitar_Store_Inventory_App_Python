@@ -1,54 +1,77 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form action="/products/new" method="post">
-    <div>
-        <label for="item">New Item: </label>
-        <input type="text" name="item" id="item" placeholder="Item" maxlength="255" autofocus required>
-    </div>
+<fieldset>
+    <legend>Add New Product</legend>
 
-    <div>
-        <label for="description">Description: </label>
-        <textarea name="description" id="description" placeholder="Description" cols="18" rows="2" maxlength="255"
-            required></textarea>
-    </div>
+    <form action="/products/new" method="post">
+        <div>
+            <label for="item">New Item: </label>
+        </div>
+        <div>
+            <input type="text" name="item" id="item" placeholder="Item" maxlength="255" autofocus required>
+        </div>
+        <br>
+        <div>
+            <label for="description">Description: </label>
+        </div>
+        <div>
+            <textarea name="description" id="description" placeholder="Description" cols="18" rows="2" maxlength="255"
+                required></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="category">Category: </label>
+        </div>
+        <div>
+            <input type="text" name="category" id="category" placeholder="Category" maxlength="255" required>
+        </div>
+        <br>
+        <div>
+            <label for="stock_quantity">Stock quantity: </label>
+        </div>
+        <div>
+            <input type="number" name="stock_quantity" id="stock_quantity" min="0" placeholder="Stock quantity"
+                required>
+        </div>
+        <br>
+        <div>
+            <label for="buying_cost">Buying cost: </label>
+        </div>
+        <div>
+            <input type="number" name="buying_cost" id="buying_cost" step="0.01" min="0" placeholder="Buying cost"
+                required>
+        </div>
+        <br>
+        <div>
+            <label for="selling_price">Selling price: </label>
+        </div>
+        <div>
+            <input type="number" name="selling_price" id="selling_price" step="0.01" min="0" placeholder="Selling price"
+                required>
+        </div>
+        <br>
+        <div>
+            <label for="manufacturer">Manufacturer: </label>
+        </div>
+        <div>
+            <select name="manufacturer_id" id="manufacturer">
+                {% for manufacturer in all_manufacturers %}
+                {% if manufacturer.is_active != False %}
+                <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+                {% elif manufacturer.is_active == False %}
+                <option disabled>{{ manufacturer.name }} (inactive)</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div>
+            <button type="reset">Reset Form</button>
+            <button type="submit">Add Product</button>
+        </div>
+    </form>
 
-    <div>
-        <label for="category">Category: </label>
-        <input type="text" name="category" id="category" placeholder="Category" maxlength="255" required>
-    </div>
-
-    <div>
-        <label for="stock_quantity">Stock quantity: </label>
-        <input type="number" name="stock_quantity" id="stock_quantity" min="0" placeholder="Stock quantity" required>
-    </div>
-
-    <div>
-        <label for="buying_cost">Buying cost: </label>
-        <input type="number" name="buying_cost" id="buying_cost" step="0.01" min="0" placeholder="Buying cost" required>
-    </div>
-
-    <div>
-        <label for="selling_price">Selling price: </label>
-        <input type="number" name="selling_price" id="selling_price" step="0.01" min="0" placeholder="Selling price"
-            required>
-    </div>
-
-    <div>
-        <label for="manufacturer">Manufacturer: </label>
-        <select name="manufacturer_id" id="manufacturer">
-            {% for manufacturer in all_manufacturers %}
-            {% if manufacturer.is_active != False %}
-            <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
-            {% elif manufacturer.is_active == False %}
-            <option disabled>{{ manufacturer.name }} (inactive)</option>
-            {% endif %}
-            {% endfor %}
-        </select>
-    </div>
-
-    <button type="reset">Reset Form</button>
-    <button type="submit">Add Product</button>
-</form>
+</fieldset>
 
 {% endblock content %}
