@@ -18,7 +18,7 @@
             </select>
             <label for="category"></label>
             <select name="category" id="category">
-                <option value="" disabled selected hidden>All Categories</option>
+                <option value="" disabled selected>All Categories</option>
                 {% for category in unique_categories %}
                 <option value="{{ category }}">{{ category }}</option>
                 {% endfor %}
