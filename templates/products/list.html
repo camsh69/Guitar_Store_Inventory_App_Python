@@ -1,0 +1,11 @@
+<li>
+    {{ product.manufacturer.name }} <br>
+    {{ product.item }} <br>
+    {{ product.description }} <br>
+    {{ product.category }} <br>
+    {{ product.buying_cost }} <br>
+    {{ product.selling_price }} <br>
+    {{ product.calculate_mark_up() }}% <br>
+    {{ product.stock_quantity }} {{ product.check_stock_status() }} <br>
+    <a href="/products/{{ product.id }}">View Product</a>
+</li>

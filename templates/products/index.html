@@ -11,16 +11,14 @@
             Filter:
             <label for="manufacturer"></label>
             <select name="manufacturer" id="manufacturer">
-                <option value="" disabled selected hidden>Manufacturer</option>
-                <option value="all">All</option>
+                <option value="" disabled selected>All Manufacturers</option>
                 {% for manufacturer in unique_manufacturers %}
                 <option value="{{ manufacturer }}">{{ manufacturer }}</option>
                 {% endfor %}
             </select>
             <label for="category"></label>
             <select name="category" id="category">
-                <option value="" disabled selected hidden>Category</option>
-                <option value="all">All</option>
+                <option value="" disabled selected hidden>All Categories</option>
                 {% for category in unique_categories %}
                 <option value="{{ category }}">{{ category }}</option>
                 {% endfor %}
@@ -34,16 +32,16 @@
 {% for product in all_products %}
 <div>
     <ul>
-        <li>{{ product.manufacturer.name }}</li>
-        <li>{{ product.item }}</li>
-        <li>{{ product.description }}</li>
-        <li>{{ product.category }}</li>
-        <li>{{ product.buying_cost }}</li>
-        <li>{{ product.selling_price }}</li>
-        <li>{{ product.calculate_mark_up() }}%</li>
-        <li>{{ product.stock_quantity }} {{ product.check_stock_status() }}</li>
+        {% if request.args.get('manufacturer') == None and request.args.get('category') == None %}
+        {% include 'products/list.html' %}
+        {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == product.category %}
+        {% include 'products/list.html' %}
+        {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == None %}
+        {% include 'products/list.html' %}
+        {% elif request.args.get('manufacturer') == None and request.args.get('category') == product.category %}
+        {% include 'products/list.html' %}
+        {% endif %}
     </ul>
-    <a href="/products/{{ product.id }}">View Product</a>
 </div>
 
 {% endfor %}
