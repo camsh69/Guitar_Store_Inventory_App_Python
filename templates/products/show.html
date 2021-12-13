@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    <div>
+        <p>{{ product.manufacturer.name }}</p>
+        <p>{{ product.item }} </p>
+        <p>{{ product.description }} </p>
+        <p>{{ product.category }} </p>
+        <p>{{ product.buying_cost }} </p>
+        <p>{{ product.selling_price }} </p>
+        <p>{{ product.calculate_mark_up() }}% </p>
+        <p>{{ product.stock_quantity }} {{ product.check_stock_status() }} </p>
+        <div>
+            <a href="/products/{{ product.id }}/edit">Edit Product</a>
+            <a href="/products/{{ product.id }}/delete">Delete Product</a>
+        </div>
+    </div>
+</section>
+{% endblock content %}

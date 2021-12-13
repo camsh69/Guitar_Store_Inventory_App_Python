@@ -47,7 +47,7 @@ def category_list(products):
 def select(id):
     product = None
 
-    sql = "SELECT * FROM books WHERE id = %s"
+    sql = "SELECT * FROM products WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 
