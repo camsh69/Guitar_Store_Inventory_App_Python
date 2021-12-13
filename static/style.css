@@ -1,7 +1,20 @@
 body {
-    background-image: url(/templates/img/bg.jpeg);
- }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(/static/img/bg.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 
-  h1 {
-      color: white;
-  }
+h1 {
+  color: white;
+  font-size: 100px;
+  font-family: "Permanent Marker", cursive;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  font-size: 75px;
+  text-align: center;
+}
