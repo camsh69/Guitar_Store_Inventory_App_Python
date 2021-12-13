@@ -1,15 +1,28 @@
-<li>
-    <div class="card">
-        <div class="container">
-            {{ product.manufacturer.name }} <br>
-            {{ product.item }} <br>
-            {{ product.description }} <br>
-            {{ product.category }} <br>
-            {{ product.buying_cost }} <br>
-            {{ product.selling_price }} <br>
-            {{ product.calculate_mark_up() }}% <br>
-            {{ product.stock_quantity }} {{ product.check_stock_status() }} <br>
-            <a href="/products/{{ product.id }}">View Product</a>
+<div class="column">
+    <li>
+        <div class="card zoom">
+            <div class="container">
+                <i class="fas fa-guitar icon-small"></i><br>
+                Manufacturer: {{ product.manufacturer.name }} <br>
+                Item: {{ product.item }} <br>
+                Description: {{ product.description }} <br>
+                Category: {{ product.category }}<br>
+                Wholesale: £{{ product.buying_cost }}&nbsp;/&nbsp;
+                Retail: £{{ product.selling_price }} <br>
+                Mark Up: {{ product.calculate_mark_up() }}%<br>
+                Quantity: {{ product.stock_quantity }}
+                {% if product.check_stock_status() == "In stock" %}
+                <span style="color: green;"><i class="fas fa-thumbs-up"></i><b> In stock</b></span>
+                {% elif product.check_stock_status() == "Low stock" %}
+                <span style="color: orange;"><i class="fas fa-exclamation-triangle"></i> <b>Low stock</b></span>
+                {% elif product.check_stock_status() == "Out of stock" %}
+                <span style="color: red;"><i class="fas fa-thumbs-down"></i><b> Out of stock</b></span>
+                {% endif %}
+                <p style="text-align: center;">
+                    <a class="link" href="/products/{{ product.id }}"><i class="far fa-eye"></i> View
+                        Product</a>
+                </p>
+            </div>
         </div>
-    </div>
-</li>
+    </li>
+</div>

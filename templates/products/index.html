@@ -1,50 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div>
-    <a href="/products/new">+ Add New Product</a>
-</div>
-<br>
-<div>
-    <form action="/products" method="get">
-        <div>
-            Filter:
-            <label for="manufacturer"></label>
-            <select name="manufacturer" id="manufacturer">
-                <option value="" disabled selected>All Manufacturers</option>
-                {% for manufacturer in unique_manufacturers %}
-                <option value="{{ manufacturer }}">{{ manufacturer }}</option>
-                {% endfor %}
-            </select>
-            <label for="category"></label>
-            <select name="category" id="category">
-                <option value="" disabled selected>All Categories</option>
-                {% for category in unique_categories %}
-                <option value="{{ category }}">{{ category }}</option>
-                {% endfor %}
-            </select>
-            <button type="submit">Go</button>
+<section id="task-bar-container">
+    <div class="task-bar">
+        <div class="add-button">
+            <a class="button" href="/products/new">+ Add New Product</a>
         </div>
-    </form>
-</div>
-
-<section id="list-container">
-    {% for product in all_products %}
-    <div class="column">
-        <ul>
-            {% if request.args.get('manufacturer') == None and request.args.get('category') == None %}
-            {% include 'products/list.html' %}
-            {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == product.category %}
-            {% include 'products/list.html' %}
-            {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == None %}
-            {% include 'products/list.html' %}
-            {% elif request.args.get('manufacturer') == None and request.args.get('category') == product.category %}
-            {% include 'products/list.html' %}
-            {% endif %}
-        </ul>
+        <br>
+        <div class="filter">
+            <form action="/products" method="get">
+                <div>
+                    Filter:
+                    <label for="manufacturer"></label>
+                    <select name="manufacturer" id="manufacturer">
+                        <option value="" disabled selected>All Manufacturers</option>
+                        {% for manufacturer in unique_manufacturers %}
+                        <option value="{{ manufacturer }}">{{ manufacturer }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category"></label>
+                    <select name="category" id="category">
+                        <option value="" disabled selected>All Categories</option>
+                        {% for category in unique_categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Go</button>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 
-{% endfor %}
+<section id="list-container">
+
+    {% for product in all_products %}
+
+    <ul>
+
+        {% if request.args.get('manufacturer') == None and request.args.get('category') == None %}
+        {% include 'products/list.html' %}
+        {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == product.category %}
+        {% include 'products/list.html' %}
+        {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == None %}
+        {% include 'products/list.html' %}
+        {% elif request.args.get('manufacturer') == None and request.args.get('category') == product.category %}
+        {% include 'products/list.html' %}
+        {% endif %}
+    </ul>
+
+    {% endfor %}
+
+</section>
 
 {% endblock content %}

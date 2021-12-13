@@ -4,11 +4,20 @@ body {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  background-attachment: fixed;
   font-family: "Lato", "Arial", sans-serif;
   font-weight: 300;
   font-size: 20px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.task-bar {
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -29,6 +38,15 @@ h2 {
   color: red;
   margin-top: 30px;
   margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.icon-small {
+  font-size: 1em;
+  color: red;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
 }
 
 /* Main navigation */
@@ -56,31 +74,86 @@ h2 {
   border-bottom: 2px solid red;
 }
 
-/* product list */
+/* task bar */
+.add-button {
+  float: left;
+  margin-left: 40px;
+}
+
+.add-button a:link,
+.add-button a:visited {
+  color: white;
+}
+
+.filter {
+  float: right;
+  margin-right: 40px;
+  color: white;
+}
+
+/* product list - css snippets from w3 schools: https://www.w3schools.com/howto/ */
 
 .column {
   float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clear floats after containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+  width: 31%;
+  padding: 15px;
+  list-style-type: none;
 }
 
 div.card {
   background-color: white;
-}
-
-div.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5%;
 }
 
 div.container {
   padding: 16px;
+}
+
+.zoom {
+  transition: transform 0.2s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(
+    1.07
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* links */
+a.button {
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 50%;
+  border-color: red;
+  border-style: solid;
+}
+
+a:visited {
+  color: blue;
+}
+
+a.button:hover {
+  background-color: red;
+}
+
+a.button:active {
+  background-color: tomato;
+  border-color: tomato;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  color: red;
+}
+
+.link:active {
+  color: tomato;
 }
 
 /* footer */
