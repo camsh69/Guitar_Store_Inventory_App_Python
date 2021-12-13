@@ -75,7 +75,7 @@ def update_product(id):
     return redirect("/products")
 
 
-@products_blueprint.route("/products/<id>/delete", methods=['POST'])
+@products_blueprint.route("/products/<id>/delete")
 def delete_product(id):
     product_repository.delete(id)
     return redirect('/products')
