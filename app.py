@@ -11,7 +11,7 @@ app.register_blueprint(products_blueprint)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', title="Guitars R Us")
 
 
 if __name__ == '__main__':

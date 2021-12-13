@@ -26,7 +26,7 @@ def products():
 @products_blueprint.route("/products/new")
 def new_product():
     manufacturers = manufacturer_repository.select_all()
-    return render_template("/products/new.html", all_manufacturers=manufacturers)
+    return render_template("/products/new.html", all_manufacturers=manufacturers, title="Add New Product")
 
 
 @products_blueprint.route("/products/new", methods=['POST'])
@@ -48,4 +48,4 @@ def create_product():
 @products_blueprint.route("/products/<id>")
 def show_product(id):
     product = product_repository.select(id)
-    return render_template('products/show.html', product=product)
+    return render_template('products/show.html', title="View Product", product=product)
