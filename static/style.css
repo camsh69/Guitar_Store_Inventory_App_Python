@@ -4,6 +4,11 @@ body {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -34,7 +39,7 @@ h2 {
 }
 .main-nav li {
   display: inline;
-  margin-left: 40px;
+  margin-right: 40px;
 }
 .main-nav li a:link,
 .main-nav li a:visited {
@@ -49,4 +54,42 @@ h2 {
 .main-nav li a:hover,
 .main-nav li a:active {
   border-bottom: 2px solid red;
+}
+
+/* product list */
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+div.card {
+  background-color: white;
+}
+
+div.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.container {
+  padding: 16px;
+}
+
+/* footer */
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
 }

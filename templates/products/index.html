@@ -28,21 +28,22 @@
     </form>
 </div>
 
-
-{% for product in all_products %}
-<div>
-    <ul>
-        {% if request.args.get('manufacturer') == None and request.args.get('category') == None %}
-        {% include 'products/list.html' %}
-        {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == product.category %}
-        {% include 'products/list.html' %}
-        {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == None %}
-        {% include 'products/list.html' %}
-        {% elif request.args.get('manufacturer') == None and request.args.get('category') == product.category %}
-        {% include 'products/list.html' %}
-        {% endif %}
-    </ul>
-</div>
+<section id="list-container">
+    {% for product in all_products %}
+    <div class="column">
+        <ul>
+            {% if request.args.get('manufacturer') == None and request.args.get('category') == None %}
+            {% include 'products/list.html' %}
+            {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == product.category %}
+            {% include 'products/list.html' %}
+            {% elif request.args.get('manufacturer') == product.manufacturer.name and request.args.get('category') == None %}
+            {% include 'products/list.html' %}
+            {% elif request.args.get('manufacturer') == None and request.args.get('category') == product.category %}
+            {% include 'products/list.html' %}
+            {% endif %}
+        </ul>
+    </div>
+</section>
 
 {% endfor %}
 
