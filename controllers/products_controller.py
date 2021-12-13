@@ -17,7 +17,7 @@ def products():
     # removes duplicates from list of categories
     unique_categories = list(dict.fromkeys(categories))
     # retrieves list of manufacturers from all products
-    manufacturers = product_repository.manufacturers_list(products)
+    manufacturers = manufacturer_repository.manufacturers_list(products)
     # removes duplicates from list of manufacturers
     unique_manufacturers = list(dict.fromkeys(manufacturers))
     return render_template("products/index.html", title="Products", all_products=products, unique_categories=unique_categories, unique_manufacturers=unique_manufacturers)

@@ -45,3 +45,11 @@ def update(manufacturer):
     sql = "UPDATE manufacturers SET (name, is_active) = (%s, %s) WHERE id = %s"
     values = [manufacturer.name, manufacturer.is_active, manufacturer.id]
     run_sql(sql, values)
+
+
+def manufacturers_list(products):
+    manufacturers = []
+
+    for product in products:
+        manufacturers.append(product.manufacturer.name)
+    return manufacturers

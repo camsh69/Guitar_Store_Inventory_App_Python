@@ -44,9 +44,16 @@ def category_list(products):
     return categories
 
 
-def manufacturers_list(products):
-    manufacturers = []
+def select(id):
+    product = None
 
-    for product in products:
-        manufacturers.append(product.manufacturer.name)
-    return manufacturers
+    sql = "SELECT * FROM books WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        manufacturer = manufacturer_repository.select(
+            result['manufacturer_id'])
+        product = Product(result['item'], result['description'], result['category'], result['stock_quantity'],
+                          result['buying_cost'], result['selling_price'], manufacturer, result['id'])
+    return product
