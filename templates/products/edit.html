@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<fieldset>
+    <legend>Edit Product</legend>
+
+    <form action="/products/{{ product.id }}/edit" method="post">
+
+        <div>
+            <label for="manufacturer_id">Manufacturer's Name: {{ product.manufacturer.name }}</label>
+        </div>
+        <div>
+            <input type="hidden" name="manufacturer_id" id="manufacturer_id" value="{{ product.manufacturer.id }}">
+        </div>
+        <br>
+        <div>
+            <label for="item">Item: </label>
+        </div>
+        <div>
+            <input type="text" name="item" id="item" value="{{ product.item }}" maxlength="255">
+        </div>
+        <br>
+
+        <div>
+            <label for="description">Description: </label>
+        </div>
+        <div>
+            <textarea name="description" id="description" value="{{ product.description }}" cols="18" rows="2"
+                maxlength="255">{{ product.description }}</textarea>
+        </div>
+        <br>
+        <div>
+            <label for="category">Category: </label>
+        </div>
+        <div>
+            <input type="text" name="category" id="category" value="{{ product.category }}" maxlength="255">
+        </div>
+        <br>
+        <div>
+            <label for="stock_quantity">Stock quantity: </label>
+        </div>
+        <div>
+            <input type="number" name="stock_quantity" id="stock_quantity" min="0" value="{{ product.stock_quantity }}">
+        </div>
+        <br>
+        <div>
+            <label for="buying_cost">Buying cost: </label>
+        </div>
+        <div>
+            <input type="number" name="buying_cost" id="buying_cost" step="0.01" min="0"
+                value="{{ product.buying_cost }}">
+        </div>
+        <br>
+        <div>
+            <label for="selling_price">Selling price: </label>
+        </div>
+        <div>
+            <input type="number" name="selling_price" id="selling_price" step="0.01" min="0"
+                value="{{ product.selling_price }}">
+        </div>
+        <br>
+        <div>
+            <button type="reset">Reset Form</button>
+            <button type="submit">Update Product</button>
+        </div>
+    </form>
+
+</fieldset>
+
+
+{% endblock content %}

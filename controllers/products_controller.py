@@ -54,13 +54,15 @@ def show_product(id):
 @products_blueprint.route("/products/<id>/edit")
 def edit_product(id):
     product = product_repository.select(id)
-    return render_template("products/edit.html", product=product, title="Edit Product")
+    return render_template("products/edit.html", title="Edit Product", product=product)
 
 
 @products_blueprint.route("/products/<id>/edit", methods=['POST'])
 def update_product(id):
+    product = product_repository.select(id)
     item = request.form['item']
     description = request.form['description']
+    # if request.form['description'] is not None else product.description
     category = request.form['category']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
@@ -68,6 +70,6 @@ def update_product(id):
     manufacturer = manufacturer_repository.select(
         request.form['manufacturer_id'])
     product = Product(item, description, category, stock_quantity,
-                      buying_cost, selling_price, manufacturer)
+                      buying_cost, selling_price, manufacturer, id)
     product_repository.update(product)
     return redirect("/products")

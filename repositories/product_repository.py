@@ -62,5 +62,5 @@ def select(id):
 def update(product):
     sql = "UPDATE products SET (item, description, category, stock_quantity, buying_cost, selling_price, manufacturer_id) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [product.item, product.description, product.category, product.stock_quantity,
-              product.buying_cost, product.selling_price, product.manufacturer.id]
+              product.buying_cost, product.selling_price, product.manufacturer.id, product.id]
     run_sql(sql, values)
