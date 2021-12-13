@@ -43,3 +43,9 @@ def create_product():
                       buying_cost, selling_price, manufacturer)
     product_repository.save(product)
     return redirect("/products")
+
+
+@products_blueprint.route("/products/<id>")
+def show_product(id):
+    product = product_repository.select(id)
+    return render_template('products/show.html', product=product)
