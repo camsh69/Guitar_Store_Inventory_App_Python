@@ -49,3 +49,25 @@ def create_product():
 def show_product(id):
     product = product_repository.select(id)
     return render_template('products/show.html', title="View Product", product=product)
+
+
+@products_blueprint.route("/products/<id>/edit")
+def edit_product(id):
+    product = product_repository.select(id)
+    return render_template("products/edit.html", product=product, title="Edit Product")
+
+
+@products_blueprint.route("/products/<id>/edit", methods=['POST'])
+def update_product(id):
+    item = request.form['item']
+    description = request.form['description']
+    category = request.form['category']
+    stock_quantity = request.form['stock_quantity']
+    buying_cost = request.form['buying_cost']
+    selling_price = request.form['selling_price']
+    manufacturer = manufacturer_repository.select(
+        request.form['manufacturer_id'])
+    product = Product(item, description, category, stock_quantity,
+                      buying_cost, selling_price, manufacturer)
+    product_repository.update(product)
+    return redirect("/products")
