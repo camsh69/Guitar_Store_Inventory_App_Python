@@ -58,6 +58,10 @@ h2 {
   margin-bottom: 3px;
 }
 
+.logo {
+  font-family: "Permanent Marker", cursive;
+  color: red;
+}
 /* Main navigation */
 .main-nav {
   float: right;
