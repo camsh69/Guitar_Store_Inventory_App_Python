@@ -1,34 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<fieldset>
-    <legend>Edit Manufacturer</legend>
+<section id="edit-manufacturer-container">
+    <div class="centre">
+        <fieldset>
+            <legend>Edit Manufacturer</legend>
 
-    <form action="/manufacturers/{{ manufacturer.id }}/edit" method="post">
-        <div>
-            <label for="name">Manufacturer's Name: {{ manufacturer.name }}</label>
-        </div>
-        <div>
-            <input type="hidden" name="name" id="name" value="{{ manufacturer.name }}">
+            <form action="/manufacturers/{{ manufacturer.id }}/edit" method="post">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="name">Manufacturer: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="name" id="name" value="{{ manufacturer.name }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="is_active">Is active?</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="radio" name="is_active" id="is_active" value="True"
+                            {% if manufacturer.is_active == True %} checked {% endif %}>
+                        <label for="is_active">Yes</label>
+                        <input type="radio" name="is_active" id="is_active" value="False"
+                            {% if manufacturer.is_active == False %} checked {% endif %}>
+                        <label for="is_active">No</label>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <div>
+                    <button type="submit">Update</button>
+                </div>
 
-        </div>
-        <br>
-        <div>
-            <label for="is_active">Is active?</label>
-        </div>
-        <div>
-            <select name="is_active" id="is_active" required>
-                <option value="True">Yes</option>
-                <option value="False">No</option>
-            </select>
-        </div>
-        <br>
-        <div>
-            <button type="submit">Update</button>
-        </div>
+            </form>
 
-    </form>
+        </fieldset>
+        <div>
+</section>
 
-</fieldset>
 
 {% endblock content %}

@@ -17,10 +17,6 @@ body {
   width: 33%;
 }
 
-spacer {
-  margin-top: 40px;
-}
-
 header {
   margin-bottom: 20px;
 }
@@ -61,6 +57,20 @@ h2 {
 .logo {
   font-family: "Permanent Marker", cursive;
   color: red;
+}
+
+button {
+  background-color: white;
+  border: 2px solid red;
+  border-radius: 25px;
+  margin-left: 5px;
+  padding: 5px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: red;
+  color: white;
 }
 
 /* Main navigation */
@@ -179,6 +189,7 @@ a.button:active {
 }
 
 /* inline form  css snippets from w3 schools: https://www.w3schools.com/howto/ */
+
 .form-inline {
   display: flex;
   flex-flow: row wrap;
