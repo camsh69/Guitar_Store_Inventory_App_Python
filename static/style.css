@@ -156,6 +156,101 @@ a.button:active {
   color: tomato;
 }
 
+/* inline form  css snippets from w3 schools: https://www.w3schools.com/howto/ */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+/* Style the input fields */
+.form-inline select {
+  vertical-align: middle;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 33%;
+  height: 25%;
+}
+
+/* Style the submit button */
+/* .form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+} */
+
+/* fieldset input forms  css snippets from w3 schools: https://www.w3schools.com/howto/*/
+
+fieldset {
+  display: inline-block;
+  background-color: white;
+  border-radius: 20px;
+  font-size: 0.85em;
+  padding: 15px;
+  margin: auto;
+  width: 600px;
+}
+
+legend {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+/* Style inputs, select elements and textareas */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the container */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* footer */
 
 footer {

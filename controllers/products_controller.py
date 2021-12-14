@@ -62,7 +62,6 @@ def update_product(id):
     product = product_repository.select(id)
     item = request.form['item']
     description = request.form['description']
-    # if request.form['description'] is not None else product.description
     category = request.form['category']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
