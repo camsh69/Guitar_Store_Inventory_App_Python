@@ -17,6 +17,10 @@ body {
   width: 33%;
 }
 
+spacer {
+  margin-top: 40px;
+}
+
 header {
   margin-bottom: 20px;
 }
@@ -109,6 +113,7 @@ h2 {
   width: 31%;
   padding: 15px;
   list-style-type: none;
+  margin-top: 10px;
 }
 
 div.card {

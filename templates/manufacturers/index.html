@@ -8,32 +8,35 @@
 </div>
 
 <section id="manufacturers-list-container">
-    {% for manufacturer in all_manufacturers %}
-    <ul>
-        <div class="column">
-            <li>
-                <div class="card zoom">
-                    <div class="container">
-                        <span style="color: blue;" <i class="fas fa-industry"></i></span><br>
-                        Manufacturer Name: {{ manufacturer.name }}<br>
-                        Is active?:
-                        {% if manufacturer.is_active == True %}
-                        &nbsp;Yes
-                        {% else %}
-                        &nbsp;No
-                        {% endif %}
-                        <br>
-                        ID: {{ manufacturer.id }}<br>
-                        <div class="centre">
-                            <a class="link" href="/manufacturers/{{ manufacturer.id }}/edit"><i class="fas fa-edit"></i>
-                                Edit</a>
-                        </div>
+    <div class="spacer">
+        {% for manufacturer in all_manufacturers %}
+        <ul>
+            <div class="centre">
+                <li>
+                    <div class="card zoom">
+                        <div class="container">
+                            <span style="color: blue;" <i class="fas fa-industry"></i></span><br>
+                            Manufacturer Name: {{ manufacturer.name }}<br>
+                            Is active?:
+                            {% if manufacturer.is_active == True %}
+                            &nbsp;Yes
+                            {% else %}
+                            &nbsp;No
+                            {% endif %}
+                            <br>
+                            ID: {{ manufacturer.id }}<br>
+                            <div class="centre">
+                                <a class="link" href="/manufacturers/{{ manufacturer.id }}/edit"><i
+                                        class="fas fa-edit"></i>
+                                    Edit</a>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-            </li>
-        </div>
-    </ul>
+                </li>
+            </div>
+        </ul>
+    </div>
 </section>
 
 {% endfor %}
