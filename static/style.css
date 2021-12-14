@@ -12,6 +12,11 @@ body {
   overflow-x: hidden;
 }
 
+.centre {
+  margin: auto;
+  width: 33%;
+}
+
 header {
   margin-bottom: 20px;
 }
@@ -92,6 +97,12 @@ h2 {
 }
 
 /* product list - css snippets from w3 schools: https://www.w3schools.com/howto/ */
+
+.product {
+  width: 31%;
+  padding: 15px;
+  list-style-type: none;
+}
 
 .column {
   float: left;
