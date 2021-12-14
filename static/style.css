@@ -62,6 +62,7 @@ h2 {
   font-family: "Permanent Marker", cursive;
   color: red;
 }
+
 /* Main navigation */
 .main-nav {
   float: right;
@@ -88,6 +89,7 @@ h2 {
 }
 
 /* task bar */
+
 .add-button {
   float: left;
   margin-left: 40px;

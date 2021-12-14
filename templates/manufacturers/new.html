@@ -8,24 +8,29 @@
             <legend>Add New Manufacturer</legend>
             <form action="/manufacturers/new" method="post">
 
-                <div>
-                    <label for="name">Manufacturer's name: </label>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="name">Manufacturer's name: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="name" name="name" required autofocus>
+                    </div>
                 </div>
-                <div>
-                    <input type="text" id="name" name="name" required autofocus>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="is_active">Is active?</label>
+                    </div>
+                    <div class="col-75">
+
+                        <input type="radio" name="is_active" id="is_active" value="True" checked>
+                        <label for="is_active">Yes</label>
+                        <input type="radio" name="is_active" id="is_active" value="False">
+                        <label for="is_active">No</label>
+                    </div>
                 </div>
                 <br>
-                <div>
-                    <label for="is_active">Is active?</label>
-                </div>
-                <div>
-                    <select name="is_active" id="is_active" required>
-                        <option value="True">Yes</option>
-                        <option value="False">No</option>
-                    </select>
-                </div>
-                <br>
-                <div>
+                <hr>
+                <div class="centre">
                     <button type="submit">Add Manufacturer</button>
                 </div>
 
