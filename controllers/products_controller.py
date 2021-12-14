@@ -54,7 +54,8 @@ def show_product(id):
 @products_blueprint.route("/products/<id>/edit")
 def edit_product(id):
     product = product_repository.select(id)
-    return render_template("products/edit.html", title="Edit Product", product=product)
+    manufacturers = manufacturer_repository.select_all()
+    return render_template("products/edit.html", title="Edit Product", product=product, all_manufacturers=manufacturers)
 
 
 @products_blueprint.route("/products/<id>/edit", methods=['POST'])
