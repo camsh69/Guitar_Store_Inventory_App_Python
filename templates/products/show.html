@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section>
-    <div>
-        <p>{{ product.manufacturer.name }}</p>
-        <p>{{ product.item }} </p>
-        <p>{{ product.description }} </p>
-        <p>{{ product.category }} </p>
-        <p>{{ product.buying_cost }} </p>
-        <p>{{ product.selling_price }} </p>
-        <p>{{ product.calculate_mark_up() }}% </p>
-        <p>{{ product.stock_quantity }} {{ product.check_stock_status() }} </p>
-        <div>
-            <a href="/products/{{ product.id }}/edit">Edit Product</a>
-            <a href="/products/{{ product.id }}/delete">Delete Product</a>
+<section id="product-container">
+    <div class="column">
+        <div class="container">
+            <i class="fas fa-guitar icon-small"></i><br>
+            Manufacturer: {{ product.manufacturer.name }}<br>
+            Item: {{ product.item }} <br>
+            Description: {{ product.description }} <br>
+            Category: {{ product.category }} <br>
+            Wholesale: £{{ product.buying_cost }} &nbsp;/&nbsp;
+            Retail: £{{ product.selling_price }} <br>
+            Mark Up: {{ product.calculate_mark_up() }}% <br>
+            Quantity: {{ product.stock_quantity }}
+            {% if product.check_stock_status() == "In stock" %}
+            <span style="color: green;"><i class="fas fa-thumbs-up"></i><b> In stock</b></span>
+            {% elif product.check_stock_status() == "Low stock" %}
+            <span style="color: orange;"><i class="fas fa-exclamation-triangle"></i> <b>Low stock</b></span>
+            {% elif product.check_stock_status() == "Out of stock" %}
+            <span style="color: red;"><i class="fas fa-thumbs-down"></i><b> Out of stock</b></span>
+            {% endif %}
+            <p style="text-align: center;">
+                <a class="link" href="/products/{{ product.id }}/edit"><i class="fas fa-edit"></i> Edit
+                    Product</a>&nbsp; &nbsp; &nbsp;
+                <a class="link" href="/products/{{ product.id }}/delete"><i class="fas fa-trash-alt"></i> Delete
+                    Product</a>
+            </p>
         </div>
     </div>
 </section>
