@@ -12,7 +12,7 @@
   - Open localhost in browser: `localhost:5000`
   
   
-## The brief -  Shop Inventory
+## The Brief -  Shop Inventory
 
 Build an app which allows a shopkeeper to track their shop's inventory. This is not an app which the customer will see, it is an admin/management app for the shop workers.
 
