@@ -13,7 +13,7 @@ CREATE TABLE products (
     description VARCHAR(255),
     category VARCHAR(255),
     stock_quantity INT,
-    buying_cost INT,
-    selling_price INT,
+    buying_cost NUMERIC,
+    selling_price NUMERIC,
     manufacturer_id INT REFERENCES manufacturers(id) ON DELETE CASCADE
 );
