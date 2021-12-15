@@ -43,7 +43,7 @@ product_repository.save(product5)
 # print(product2.item, product2.description, product2.category, product2.stock_quantity,
 #       product2.buying_cost, product2.selling_price, product2.manufacturer.name)
 
-products = product_repository.select_all()
-for product in products:
-    print(product.item, product.description, product.category, product.stock_quantity,
-          product.buying_cost, product.selling_price, product.manufacturer.name, product.id)
+# products = product_repository.select_all()
+# for product in products:
+#     print(product.item, product.description, product.category, product.stock_quantity,
+#           product.buying_cost, product.selling_price, product.manufacturer.name, product.id)
