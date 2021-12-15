@@ -25,8 +25,17 @@ product1 = Product('Stratocaster', 'Six string, Sunburst',
                    'Electric Guitar', 6, 450, 500, manufacturer1)
 product_repository.save(product1)
 product2 = Product('Les Paul', 'Six string, Black',
-                   'Electric Guitar', 4, 850, 1100, manufacturer2)
+                   'Electric Guitar', 4, 950, 1100, manufacturer2)
 product_repository.save(product2)
+product3 = Product('Telecaster', 'Six string, Blonde',
+                   'Electric Guitar', 0, 475, 500, manufacturer1)
+product_repository.save(product3)
+product4 = Product('Twin Reverb Deluxe', 'Silverface, 50 watt',
+                   'Amplifier', 5, 990, 1090, manufacturer1)
+product_repository.save(product4)
+product5 = Product('SG', 'Six string, Red',
+                   'Electric Guitar', 5, 750, 890, manufacturer2)
+product_repository.save(product5)
 
 # print(product1.item, product1.description, product1.category, product1.stock_quantity,
 #       product1.buying_cost, product1.selling_price, product1.manufacturer.name)

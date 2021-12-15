@@ -21,10 +21,6 @@ header {
   margin-bottom: 20px;
 }
 
-.task-bar {
-  margin-bottom: 40px;
-}
-
 h1 {
   color: red;
   font-size: 100px;
@@ -73,6 +69,10 @@ button:hover {
   color: white;
 }
 
+button:active {
+  background-color: tomato;
+}
+
 /* Main navigation */
 .main-nav {
   float: right;
@@ -100,8 +100,14 @@ button:hover {
 
 /* task bar */
 
+.task-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
 .add-button {
-  float: left;
   margin-left: 40px;
 }
 
@@ -111,9 +117,15 @@ button:hover {
 }
 
 .filter {
-  float: right;
   margin-right: 40px;
   color: white;
+  margin-left: auto;
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
 
 /* product list - css snippets from w3 schools: https://www.w3schools.com/howto/ */
@@ -153,12 +165,13 @@ div.container {
 }
 
 /* links */
+
 a.button {
   color: white;
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: uppercase;
-  border-radius: 50%;
+  border-radius: 25px;
   border-color: red;
   border-style: solid;
 }
@@ -198,10 +211,8 @@ a.button:active {
 
 /* Style the input fields */
 .form-inline select {
-  vertical-align: middle;
   padding: 10px;
   background-color: #fff;
-  border: 1px solid #ddd;
   width: 33%;
   height: 25%;
 }
